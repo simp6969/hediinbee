@@ -2,26 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #9c5322;
+  color: #f7a570;
+  user-select: none;
+  overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+svg:hover {
+  cursor: pointer;
+}
+
+img {
+  object-fit: contain;
+}
+.loadingGradient {
+  background: linear-gradient(to left, #ab612f, #ca7c49, #ab612f);
+  animation: infinite placeholder 1.7s, forwards;
+}
+@keyframes placeholder {
+  0% {
+    background-position: -60vw 0;
+  }
+  100% {
+    background-position: 60vw 0;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.loadingGradientImage {
+  background: linear-gradient(to left, #ab612f, #ca7c49, #ab612f);
+  animation: infinite nah 1.7s, forwards;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes nah {
+  0% {
+    background-position: -7.5vw 0;
+  }
+  100% {
+    background-position: 7.5vw 0;
   }
 }
