@@ -10,6 +10,13 @@ export function Translate() {
       price: "үнэ",
       name: "нэр",
       dollar: "usd",
+      jet: "хувийн онгоц",
+      MongolianCashmere: "Монгол ноолууран бүтээгдэхүүн",
+      SnuffBottle: "Хөөрөг",
+      Mongoliantraditionalsnuffbottlebag: "даалин",
+      KingSilverBowl: "мөнгөн аяга",
+      morinkhuur: "морин хуур",
+      shartos: "шар тос 25kg",
     };
   }
   return {
@@ -22,5 +29,13 @@ export function Translate() {
     price: "price",
     name: "name",
     dollar: "usd",
+    jet: "private jet",
+    MongolianCashmere: "Mongolian Cashmere",
+    SnuffBottle: "Snuff Bottle",
+    Mongoliantraditionalsnuffbottlebag:
+      "Mongolian traditional snuff bottle bag",
+    KingSilverBowl: "King Silver Bowl",
+    morinkhuur: "3 Head Morin Khuur",
+    shartos: "Yak Ghee 25kg",
   };
 }

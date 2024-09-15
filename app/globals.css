@@ -37,7 +37,7 @@ img {
 
 .loadingGradientImage {
   background: linear-gradient(to left, #ab612f, #ca7c49, #ab612f);
-  animation: infinite nah 1.7s, forwards;
+  animation: infinite nah 1.1s, forwards;
 }
 @keyframes nah {
   0% {

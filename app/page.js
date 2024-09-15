@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Translate } from "./components/LanguageControlingUnit";
+import { Items } from "./components/ItemControlingUnit";
 
 export default function Home() {
   const [pageState, setPageState] = useState({
@@ -18,58 +19,10 @@ export default function Home() {
       setPageState({
         ...pageState,
         languageControlingUnit: translateModule,
-        items: [
-          {
-            image: "/mechanic_keyboard.webp",
-            price: "23",
-            name: translateModule.mechanicKeyboard,
-            quantity: 0,
-          },
-          {
-            image: "/monitor.webp",
-            price: "881",
-            name: translateModule.monitor,
-            quantity: 0,
-          },
-          {
-            image: "/cpu.webp",
-            price: "617",
-            name: "cpu",
-            quantity: 0,
-          },
-          {
-            image: "/lamborgin.webp",
-            name: "Lamborghini",
-            price: "302939",
-            quantity: 0,
-          },
-        ],
+        items: Items(),
       });
     }
   }, []);
-  // function handleQuantityIncrease(name) {
-  //   setPageState((prevState) => ({
-  //     ...prevState,
-  //     items: prevState.items.map((item) =>
-  //       item.name === name ? { ...item, quantity: item.quantity + 1 } : item
-  //     ),
-  //   }));
-  // }
-
-  // console.log(pageState.items);
-  // function handleQuantityDecrease(name) {
-  //   setPageState((prevState) => ({
-  //     ...prevState,
-  //     items: prevState.items.map((item) =>
-  //       item.name === name
-  //         ? {
-  //             ...item,
-  //             quantity: item.quantity === 0 ? item.quantity : item.quantity - 1,
-  //           }
-  //         : item
-  //     ),
-  //   }));
-  // }
 
   function handleQuantityChange(name, change, price, quantity) {
     setPageState((prevState) => ({
@@ -89,31 +42,28 @@ export default function Home() {
         ...prevState,
         currentFund: prevState.currentFund - price,
       }));
-    } else if (pageState.currentFund > 0 && quantity >= 0 && change < 0) {
+    } else if (pageState.currentFund > 0 && quantity > 0 && change < 0) {
       setPageState((prevState) => ({
         ...prevState,
         currentFund: prevState.currentFund + price,
       }));
     }
-    console.log(typeof price);
   }
   if (!pageState.languageControlingUnit.million && !pageState.imageLoaded) {
     return (
       <div className="w-[100vw] h-[100vh] mt-[30px] flex items-center flex-col gap-[20px]">
         <div className="h-[45px] w-[60vw] rounded-[3px] loadingGradient"></div>
         <div className="flex gap-[50px]  justify-center w-[100vw] h-[230px]">
-          {/* {Array(4)
-            .fill(0)
-            .map((_, index) => {
-              <div className="loadingGradientImage flex justify-center">
-                hi
-              </div>;
-            })} */}
+          <div className="loadingGradientImage flex justify-center w-[15%] h-[100%]"></div>
+          <div className="loadingGradientImage flex justify-center w-[15%] h-[100%]"></div>
+          <div className="loadingGradientImage flex justify-center w-[15%] h-[100%]"></div>
+          <div className="loadingGradientImage flex justify-center w-[15%] h-[100%]"></div>
         </div>
       </div>
     );
   }
   console.log(pageState.currentFund);
+  alert(1e9);
   return (
     <div className="w-[100vw] mt-[30px] flex justify-center flex-col gap-[20px]">
       <div className="flex w-[100%] justify-center items-center h-[45px]">
@@ -122,7 +72,10 @@ export default function Home() {
           <p>
             {pageState.languageControlingUnit.fund +
               ": " +
-              (pageState.currentFund > 999999
+              (pageState.currentFund >= 1000000000
+                ? (pageState.currentFund / 1000000000).toFixed(1) +
+                  " billion (USD)"
+                : pageState.currentFund >= 1000000
                 ? pageState.currentFund.toString().substring(0, 3) +
                   " " +
                   pageState.languageControlingUnit.million +
@@ -132,15 +85,16 @@ export default function Home() {
         </div>
       </div>
       {/* items list go here */}
-      <div className="flex gap-[50px] justify-center">
+      <div className="flex gap-[50px] justify-center mt-[30px] flex-wrap overflow-y-auto">
         {pageState.items.map((e, index) => {
           return (
             <div
               key={index}
-              className="w-[15%] p-[10px] rounded-[10px] bg-[#b35e26] flex justify-center flex-col items-center h-[230px]"
+              className="w-[15%] p-[10px] overflow-hidden rounded-[10px] bg-[#b35e26] flex justify-center flex-col items-center h-[250px]"
             >
               <div className="w-[50%] h-[90%] flex justify-center">
                 <img
+                  className="rounded-[20px]"
                   onLoad={() =>
                     setPageState({ ...pageState, imageLoaded: true })
                   }
