@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Translate } from "./components/LanguageControlingUnit";
 import { Items } from "./components/ItemControlingUnit";
+import millify from "millify";
 
 export default function Home() {
   const [pageState, setPageState] = useState({
@@ -25,30 +26,34 @@ export default function Home() {
   }, []);
 
   function handleQuantityChange(name, change, price, quantity) {
-    setPageState((prevState) => ({
-      ...prevState,
+    setPageState((prevState) => {
+      if (change === 0 || (change > 0 && prevState.currentFund < price)) {
+        return prevState;
+      }
 
-      items: prevState.items.map((item) =>
-        item.name === name
-          ? {
-              ...item,
-              quantity: Math.max(item.quantity + change, 0),
-            }
-          : item
-      ),
-    }));
-    if (pageState.currentFund > 0 && quantity >= 0 && change > 0) {
-      setPageState((prevState) => ({
+      const newQuantity = Math.max(quantity + change, 0);
+
+      if (change < 0 && !prevState.currentFund + price >= 100000000) {
+        return prevState;
+      }
+
+      const newFund =
+        change > 0
+          ? prevState.currentFund - price
+          : prevState.currentFund + price;
+      if (newFund > 100000000) {
+        return prevState;
+      }
+      return {
         ...prevState,
-        currentFund: prevState.currentFund - price,
-      }));
-    } else if (pageState.currentFund > 0 && quantity > 0 && change < 0) {
-      setPageState((prevState) => ({
-        ...prevState,
-        currentFund: prevState.currentFund + price,
-      }));
-    }
+        items: prevState.items.map((item) =>
+          item.name === name ? { ...item, quantity: newQuantity } : item
+        ),
+        currentFund: newFund,
+      };
+    });
   }
+
   if (!pageState.languageControlingUnit.million && !pageState.imageLoaded) {
     return (
       <div className="w-[100vw] h-[100vh] mt-[30px] flex items-center flex-col gap-[20px]">
@@ -63,13 +68,12 @@ export default function Home() {
     );
   }
   console.log(pageState.currentFund);
-  alert(1e9);
   return (
     <div className="w-[100vw] mt-[30px] flex justify-center flex-col gap-[20px]">
       <div className="flex w-[100%] justify-center items-center h-[45px]">
         <p className="title ">{pageState.languageControlingUnit.gameTitle}</p>
         <div className="absolute right-[100px]">
-          <p>
+          {/* <p>
             {pageState.languageControlingUnit.fund +
               ": " +
               (pageState.currentFund >= 1000000000
@@ -81,6 +85,12 @@ export default function Home() {
                   pageState.languageControlingUnit.million +
                   " (USD)"
                 : pageState.currentFund + " (USD)")}
+          </p> */}
+          <p>
+            {pageState.languageControlingUnit.fund +
+              ": " +
+              millify(pageState.currentFund) +
+              " USD"}
           </p>
         </div>
       </div>
