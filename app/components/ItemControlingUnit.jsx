@@ -58,29 +58,53 @@ export function Items() {
       quantity: 0,
       price: "150",
     },
-    // {
-    //   name: translateModule.Mongoliantraditionalsnuffbottlebag,
-    //   quantity: 0,
-    //   price: "170",
-    //   image: "daalin.jpg",
-    // },
-    // {
-    //   name: translateModule.KingSilverBowl,
-    //   price: "1250",
-    //   quantity: 0,
-    //   image: "/ayga.webp",
-    // },
-    // {
-    //   name: translateModule.morinkhuur,
-    //   quantity: 0,
-    //   image: "/3tolgoi.webp",
-    //   price: "8000",
-    // },
+    {
+      name: translateModule.Mongoliantraditionalsnuffbottlebag,
+      quantity: 0,
+      price: "170",
+      image: "daalin.jpg",
+    },
+    {
+      name: translateModule.KingSilverBowl,
+      price: "1250",
+      quantity: 0,
+      image: "/ayga.webp",
+    },
+    {
+      name: translateModule.morinkhuur,
+      quantity: 0,
+      image: "/3tolgoi.webp",
+      price: "8000",
+    },
     {
       name: translateModule.shartos,
-      price: "1350",
       image: "/shartos.webp",
       quantity: 0,
+      price: "1350",
+    },
+    {
+      name: translateModule.chinggis,
+      price: "140",
+      image: "/chinggis.webp",
+      quantity: 0,
+    },
+    {
+      name: translateModule.Feltitems,
+      quantity: 0,
+      image: "/felt.webp",
+      price: "100",
+    },
+    {
+      name: translateModule.gerege,
+      quantity: 0,
+      image: "/gerege.jpg",
+      price: "156",
+    },
+    {
+      name: "prius 20",
+      quantity: 0,
+      image: "/prius20.jpg",
+      price: "5881",
     },
   ];
   return data.sort((a, b) => a.price - b.price);

@@ -69,10 +69,10 @@ export default function Home() {
   }
   console.log(pageState.currentFund);
   return (
-    <div className="w-[100vw] mt-[30px] flex justify-center flex-col gap-[20px]">
-      <div className="flex w-[100%] justify-center items-center h-[45px]">
-        <p className="title ">{pageState.languageControlingUnit.gameTitle}</p>
-        <div className="absolute right-[100px]">
+    <div className="w-[100vw] mt-[30px] flex justify-center flex-col gap-[20px] overflow-y-scroll">
+      <div className="flex justify-around headers w-[100%]justify-center items-center h-[45px]">
+        <p className="title">{pageState.languageControlingUnit.gameTitle}</p>
+        <div className="70px max-[385px]:h-[90px] max-[385px]:text-center flex items-center">
           {/* <p>
             {pageState.languageControlingUnit.fund +
               ": " +
@@ -95,12 +95,12 @@ export default function Home() {
         </div>
       </div>
       {/* items list go here */}
-      <div className="flex gap-[50px] justify-center mt-[30px] flex-wrap overflow-y-auto">
+      <div className="flex gap-[50px] p-[30px] justify-center mt-[10px] flex-wrap overflow-y-auto">
         {pageState.items.map((e, index) => {
           return (
             <div
               key={index}
-              className="w-[15%] p-[10px] overflow-hidden rounded-[10px] bg-[#b35e26] flex justify-center flex-col items-center h-[250px]"
+              className="w-[200px] items p-[10px] overflow-hidden rounded-[10px] bg-[#b35e26] flex justify-center flex-col items-center h-[250px]"
             >
               <div className="w-[50%] h-[90%] flex justify-center">
                 <img

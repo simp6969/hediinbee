@@ -7,7 +7,7 @@ body {
   background-color: #9c5322;
   color: #f7a570;
   user-select: none;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .title {
@@ -45,5 +45,52 @@ img {
   }
   100% {
     background-position: 7.5vw 0;
+  }
+}
+
+/* responsive design lol */
+
+@media screen and (max-width: 1215px) {
+  .title {
+    font-size: 150%;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+  }
+  .items {
+    width: 180px;
+    height: 240px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .title {
+    font-size: 120%;
+    width: 60%;
+  }
+  .items {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 581px) {
+  .title {
+    font-size: 110%;
+    width: 60%;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .title {
+    font-size: 90%;
+    width: 60%;
+    margin-top: 50px;
+  }
+  .items {
+    width: 105px;
+    height: 220px;
   }
 }

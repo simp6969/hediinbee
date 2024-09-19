@@ -17,6 +17,9 @@ export function Translate() {
       KingSilverBowl: "мөнгөн аяга",
       morinkhuur: "морин хуур",
       shartos: "шар тос 25kg",
+      chinggis: "Чингис уран баримал",
+      Feltitems: "Эсгий эд зүйлс.",
+      gerege: "гэрэгэ",
     };
   }
   return {
@@ -37,5 +40,8 @@ export function Translate() {
     KingSilverBowl: "King Silver Bowl",
     morinkhuur: "3 Head Morin Khuur",
     shartos: "Yak Ghee 25kg",
+    chinggis: "chinggis sculpture",
+    Feltitems: "Felt items",
+    gerege: "gerege",
   };
 }
