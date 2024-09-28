@@ -20,6 +20,8 @@ export function Translate() {
       chinggis: "Чингис уран баримал",
       Feltitems: "Эсгий эд зүйлс.",
       gerege: "гэрэгэ",
+      trip: "дэлхий даяар аялах",
+      nba: "NBA финалын тасалбар (vip)",
     };
   }
   return {
@@ -43,5 +45,7 @@ export function Translate() {
     chinggis: "chinggis sculpture",
     Feltitems: "Felt items",
     gerege: "gerege",
+    trip: "travel around world",
+    nba: "NBA Finals ticket (vip)",
   };
 }

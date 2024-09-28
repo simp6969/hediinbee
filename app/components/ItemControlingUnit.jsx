@@ -106,6 +106,30 @@ export function Items() {
       image: "/prius20.jpg",
       price: "5881",
     },
+    {
+      name: "ml 5000 diamond",
+      quantity: 0,
+      price: "100",
+      image: "/mlDia.jpg",
+    },
+    {
+      name: translateModule.trip,
+      quantity: 0,
+      image: "/worldTrip.webp",
+      price: "24000",
+    },
+    {
+      name: translateModule.nba,
+      quantity: 0,
+      image: "/nba.jpg",
+      price: "133000",
+    },
+    {
+      name: "bike",
+      quantity: 0,
+      price: "1000000",
+      image: "/bike.jpg",
+    },
   ];
   return data.sort((a, b) => a.price - b.price);
 }
