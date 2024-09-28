@@ -7,7 +7,7 @@ body {
   background-color: #9c5322;
   color: #f7a570;
   user-select: none;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 .title {
